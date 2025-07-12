@@ -18,7 +18,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex flex-col items-end space-y-3">
+            <div className="flex flex-col items-end max-md:items-center space-y-3">
               <div className="flex items-center space-x-4">
                 <Link
                   href="https://github.com/Satyamsen007"

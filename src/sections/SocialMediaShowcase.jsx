@@ -108,10 +108,10 @@ const SocialMediaShowcase = () => {
               <div className={`p-2 rounded-lg ${platform.iconColor} transition-all duration-700 ease-in-out group-hover:rotate-[25deg] group-hover:scale-125 group-hover:drop-shadow-lg`}>
                 {platform.icon}
               </div>
-              <h3 className="text-lg font-bold text-[#e0c6f7]">
+              <h3 className="text-lg max-md:text-base font-bold text-[#e0c6f7]">
                 {platform.name}
               </h3>
-              <p className="text-sm text-[#a084e8]">
+              <p className="text-sm text-[#a084e8] max-md:text-xs">
                 {platform.username}
               </p>
             </a>

@@ -5,13 +5,15 @@ import MusicPlayButton from "@/components/MusicPlayButton";
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: "--font-sans"
+  variable: "--font-sans",
+  display: "swap",
 });
 
 const calistoga = Calistoga({
   subsets: ['latin'],
   variable: "--font-serif",
-  weight: ["400"]
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata = {
