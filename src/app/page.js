@@ -69,7 +69,7 @@ export default function Home() {
       ) : showLoader ? (
         <WelcomeLoader onComplete={() => setShowLoader(false)} />
       ) : (
-        <div className="relative min-h-screen w-full text-white antialiased font-sans overflow-x-clip">
+        <div className="relative min-h-screen w-full text-white antialiased font-sans overflow-x-clip max-md:bg-[#240C36]">
           <CustomCursor />
           <Header />
           <HeroSection />

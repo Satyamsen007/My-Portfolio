@@ -15,7 +15,7 @@ const portfolioProjects = [
     id: 1,
     title: "FreshCat - Online Grocery Store",
     description: "A full-featured e-commerce platform for grocery shopping with modern UI/UX. Includes product catalog, shopping cart, user authentication, and payment integration. Built with React for a seamless shopping experience across all devices.",
-    techStack: ["React", "Tailwind CSS", "Next.js", "Framer Motion","Lucide React", "React-Redux", "Cloudinary", "Mongoose", "Stripe", "Next-Auth"],
+    techStack: ["React", "Tailwind CSS", "Next.js", "Framer Motion", "Lucide React", "React-Redux", "Cloudinary", "Mongoose", "Stripe", "Next-Auth"],
     link: "https://fresh-cart-mu-ten.vercel.app",
     image: FreshCartLandingPage,
     github: "https://github.com/Satyamsen007/FreshCart_Grosery_Store",
@@ -126,6 +126,8 @@ export const ProjectsSection = () => {
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                       width={800}
                       height={450}
+                      priority={true}
+                      quality={90}
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>

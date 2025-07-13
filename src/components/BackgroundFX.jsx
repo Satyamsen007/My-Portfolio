@@ -51,7 +51,7 @@ export default function BackgroundFX() {
   }, [glowX, glowY]);
 
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none select-none">
+    <div className="fixed inset-0 -z-10 pointer-events-none max-md:hidden select-none">
       {/* Top overlay gradient to match HeroSection fade */}
       <div className="absolute top-0 left-0 w-full h-60 z-20 pointer-events-none" style={{ background: "linear-gradient(to bottom, #240C36 0%, #240C36 40px, transparent 100%)" }} />
       {/* Deep base */}

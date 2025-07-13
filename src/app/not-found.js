@@ -9,11 +9,11 @@ export const metadata = {
     title: "Satyam Sen | Full-Stack Web Developer",
     description:
       "I build high-performance, SEO-friendly web applications with modern JavaScript stacks. Passionate about crafting accessible, scalable solutions—from pixel-perfect UIs to robust backend APIs.",
-    url: "https://www.motionwriter.in",
+    url: "https://satyam-dev-phi.vercel.app",
     siteName: "Satyam Dev",
     images: [
       {
-        url: "https://motionwriter.in/OG_IMAGES/404PageImage.png",
+        url: "https://satyam-dev-phi.vercel.app/OG_IMAGES/404PageImage.png",
         width: 1200,
         height: 630,
         alt: "Satyam Dev PortFolio Page Image",
@@ -28,7 +28,7 @@ export const metadata = {
     title: "Satyam Sen | Full-Stack Web Developer",
     description:
       "I build high-performance, SEO-friendly web applications with modern JavaScript stacks. Passionate about crafting accessible, scalable solutions—from pixel-perfect UIs to robust backend APIs.",
-    images: ["https://motionwriter.in/OG_IMAGES/404PageImage.png"],
+    images: ["https://satyam-dev-phi.vercel.app/OG_IMAGES/404PageImage.png"],
   },
   robots: {
     index: true,

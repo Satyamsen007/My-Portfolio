@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://www.motionwriter.in/sitemap.xml',
+    sitemap: 'https://satyam-dev-phi.vercel.app/sitemap.xml',
   }
 }
