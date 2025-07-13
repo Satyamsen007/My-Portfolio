@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 const portfolioProjects = [
   {
     id: 1,
-    title: "FreshCat - Online Grocery Store",
+    title: "FreshCart - Online Grocery Store",
     description: "A full-featured e-commerce platform for grocery shopping with modern UI/UX. Includes product catalog, shopping cart, user authentication, and payment integration. Built with React for a seamless shopping experience across all devices.",
     techStack: ["React", "Tailwind CSS", "Next.js", "Framer Motion", "Lucide React", "React-Redux", "Cloudinary", "Mongoose", "Stripe", "Next-Auth"],
     link: "https://fresh-cart-mu-ten.vercel.app",
