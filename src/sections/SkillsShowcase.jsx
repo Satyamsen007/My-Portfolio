@@ -48,41 +48,14 @@ export const SkillsShowcase = () => {
                     {skill.value}%
                   </span>
                 </div>
-                {/* Ultra-premium glass bar with effects */}
-                <div
-                  className="w-full h-2 flex items-center bg-[#160a2e]/95 border border-[#2e1543] rounded-full backdrop-blur-sm relative overflow-hidden group"
-                  style={{ transition: 'box-shadow 0.3s cubic-bezier(.4,0,.2,1)' }}
-                >
-                  {/* Subtle neon gradient fill */}
+                <div className="w-full h-2 rounded-full bg-[#191622] relative overflow-hidden">
                   <motion.div
-                    key={`bar-fill-${skill.name}`}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.value}%` }}
                     viewport={{ once: true, amount: 0.6 }}
-                    transition={{ duration: 1.3, ease: "easeOut" }}
-                    className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#E86FFF]/90 to-[#8e44ec]/80"
-                  >
-                    {/* Glassy highlight */}
-                    <div className="absolute inset-0 rounded-full bg-white/10 pointer-events-none" />
-                    {/* Animated sheen sweep */}
-                    <motion.div
-                      key={`bar-sheen-${skill.name}`}
-                      className="absolute top-0 left-0 h-full w-1/5 pointer-events-none"
-                      style={{ background: 'linear-gradient(120deg,rgba(255,255,255,0.18) 0%,rgba(255,255,255,0.02) 100%)', borderRadius: '9999px' }}
-                      initial={{ x: '-60%' }}
-                      animate={{ x: ['-60%', '120%'] }}
-                      transition={{ repeat: Infinity, duration: 2.8, ease: 'linear', delay: 0.3 }}
-                    />
-                    {/* Neon accent end cap with pulse */}
-                    <motion.div
-                      key={`bar-endcap-${skill.name}`}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-[#E86FFF] rounded-full shadow-[0_0_8px_2px_#E86FFF] border-2 border-[#E86FFF]"
-                      animate={{ scale: [1, 1.14, 1] }}
-                      transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-                    />
-                  </motion.div>
-                  {/* Subtle glass inner shadow */}
-                  <div className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: 'inset 0 1px 4px #fff1, inset 0 -1px 4px #0003' }} />
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#E86FFF] to-[#8e44ec]"
+                  />
                 </div>
               </div>
             ))}
