@@ -34,6 +34,7 @@ export const ContactUsSection = () => {
         {
           to_email: data.email,
           to_name: data.name,
+          message: data.message
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
