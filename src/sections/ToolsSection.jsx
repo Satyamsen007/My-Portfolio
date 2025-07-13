@@ -13,7 +13,6 @@ import photoShopLogo from '@/assets/images/Photoshop.png';
 import reactLogo from '@/assets/images/React.png';
 import zustandLogo from '@/assets/images/Zustand.png'
 import FlameStarEffectUnderline from "@/components/FlameStarEffectUnderline";
-import { PixelCanvas } from "@/components/ui/pixel-canvas";
 export const ToolsSection = () => {
   const tools = [
     {
@@ -151,12 +150,6 @@ export const ToolsSection = () => {
             }}
             style={{ minHeight: '140px' }}
           >
-            <PixelCanvas
-              gap={10}
-              speed={25}
-              colors={["#e0c6f7", "#8e44ec", "#a084e8"]}
-              variant="icon"
-            />
             <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-[#2e1543]/80 via-[#30144a]/70 to-[#4d256c]/70 mb-2 shadow-lg z-20">
               {tool.icon ? (
                 tool.icon

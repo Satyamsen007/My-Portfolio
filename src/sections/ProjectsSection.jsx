@@ -148,7 +148,7 @@ export const ProjectsSection = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
+                        transition={{ delay: 0.3 }}
                         className="text-[#e0c6f7]/90 text-xs md:text-sm text-center mb-2 px-1">
                         {project.description}
                       </motion.p>
@@ -159,27 +159,23 @@ export const ProjectsSection = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.5, staggerChildren: 0.1 }}
+                        transition={{ delay: 0.4, staggerChildren: 0.1 }}
                         className="flex flex-wrap justify-center gap-2 mb-1">
                         {project.techStack.map((tech, idx) => (
-                          <motion.span
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 * idx }}
+                          <span
                             key={idx}
                             className="px-3 py-1 rounded-full text-xs font-semibold bg-[#e0c6f7]/10 border border-[#e0c6f7]/20 text-[#e0c6f7] shadow-sm backdrop-blur-md">
                             {tech}
-                          </motion.span>
+                          </span>
                         ))}
                       </motion.div>
                     )}
                     {/* Action Buttons */}
                     <motion.div
-                      initial={{ opacity: 0, y: -10 }}
+                      initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.5, duration: 0.3 }}
+                      transition={{ delay: 0.5 }}
                       className="flex gap-3 w-full mt-2">
                       <a
                         href={project.link}
