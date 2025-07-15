@@ -37,7 +37,7 @@ const experience = [
     title: "Freelance Technical Writer",
     org: "Motion Writer",
     date: "Jan 2025 - Present",
-    location: "Remote",
+    location: "OnSite",
     desc: "At Motion Writer, I tackled web development and SEO-related projects—debugging code issues, optimizing content, and creating technical guidelines for developers."
   },
 ];
@@ -56,41 +56,14 @@ const cardVariants = {
   }),
 };
 
-const tilt = (x, y, rect) => {
-  // Calculate tilt based on mouse position inside the card
-  const dx = x - rect.width / 2;
-  const dy = y - rect.height / 2;
-  const maxTilt = 16; // more pronounced 3D
-  const rotateY = (dx / (rect.width / 2)) * maxTilt;
-  const rotateX = -(dy / (rect.height / 2)) * maxTilt;
-  return {
-    rotateY,
-    rotateX,
-  };
-};
+
 
 const EducationExperienceSection = () => {
   const [activeTab, setActiveTab] = useState("Education");
-  const [cardMouse, setCardMouse] = useState({});
   const items = activeTab === "Education" ? education : experience;
 
   // For sliding tab indicator
   const tabIndex = tabs.indexOf(activeTab);
-
-  // Mouse move handler for glossy/parallax effect
-  const [tiltState, setTiltState] = useState({});
-  const handleCardMouseMove = (e, idx) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setCardMouse((prev) => ({ ...prev, [idx]: { x, y, rect } }));
-    setTiltState((prev) => ({ ...prev, [idx]: tilt(x, y, rect) }));
-  };
-  const handleCardMouseLeave = (idx) => {
-    setCardMouse((prev) => ({ ...prev, [idx]: null }));
-    setTiltState((prev) => ({ ...prev, [idx]: { rotateX: 0, rotateY: 0 } }));
-  };
 
   return (
     <section
@@ -139,61 +112,22 @@ const EducationExperienceSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full px-2 md:px-0 perspective-[1200px]">
         <AnimatePresence>
           {items.map((item, idx) => {
-            const mouse = cardMouse[idx];
-            const tiltVal = tiltState[idx] || { rotateX: 0, rotateY: 0 };
             return (
               <motion.div
                 key={item.title + idx}
                 className="relative rounded-3xl bg-[#2e1543]/70 border border-[#5e2bbd] shadow-2xl px-6 pt-12 pb-7 flex flex-col items-center justify-start min-h-[230px] max-w-sm mx-auto backdrop-blur-xl overflow-visible group"
-                style={{ perspective: "1200px" }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.19 }}
                 custom={idx}
                 variants={cardVariants}
-                animate={{
-                  ...tiltVal,
-                  scale: cardMouse[idx] ? 1.04 : 1,
-                  y: cardMouse[idx] ? -8 : 0,
-                  transition: { type: "spring", stiffness: 180, damping: 18 },
-                }}
-                onMouseMove={e => handleCardMouseMove(e, idx)}
-                onMouseLeave={() => handleCardMouseLeave(idx)}
               >
-                {/* Rim light highlight for extra 3D pop */}
-                {mouse && (
-                  <span
-                    className="pointer-events-none absolute inset-0 rounded-3xl z-30"
-                    style={{
-                      background: `linear-gradient(120deg, rgba(255,255,255,0.11) 0%, transparent 100%)`,
-                      opacity: 0.8,
-                      mixBlendMode: "screen",
-                    }}
-                  />
-                )}
                 {/* Floating Icon */}
                 <span className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-[#e0c6f7] via-[#a084e8] to-[#8e44ec] shadow-xl border-4 border-[#240C36] z-20">
                   <span className="text-3xl md:text-4xl drop-shadow-lg">{item.icon}</span>
                 </span>
                 {/* Neon Border Glow (removed on hover, only static faint border) */}
                 <span className="pointer-events-none absolute inset-0 rounded-3xl border-2 border-[#00FFB2] opacity-15 blur-[2.5px]" />
-                {/* Animated Glossy Stripe */}
-                {mouse && (
-                  <motion.span
-                    className="pointer-events-none absolute left-0 top-0 w-full h-full z-30 rounded-3xl"
-                    style={{
-                      background:
-                        "linear-gradient(120deg, rgba(255,255,255,0.23) 0%, rgba(255,255,255,0.09) 40%, transparent 80%)",
-                      WebkitMaskImage: `radial-gradient(250px at ${mouse.x}px ${mouse.y}px, #fff 0%, transparent 80%)`,
-                      maskImage: `radial-gradient(250px at ${mouse.x}px ${mouse.y}px, #fff 0%, transparent 80%)`,
-                      mixBlendMode: "lighten",
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.18 }}
-                  />
-                )}
                 {/* Card Content */}
                 <div className="w-full flex flex-col items-center gap-1 mt-2 mb-1">
                   <h4 className="w-full text-lg md:text-xl font-bold text-white text-center drop-shadow-sm leading-tight mb-1">

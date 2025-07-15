@@ -13,6 +13,7 @@ import photoShopLogo from '@/assets/images/Photoshop.png';
 import reactLogo from '@/assets/images/React.png';
 import zustandLogo from '@/assets/images/Zustand.png'
 import FlameStarEffectUnderline from "@/components/FlameStarEffectUnderline";
+import { useEffect, useRef, useState } from "react";
 export const ToolsSection = () => {
   const tools = [
     {
@@ -123,6 +124,31 @@ export const ToolsSection = () => {
       sound: '/music/sounds/e6-piano.mp3'
     },
   ];
+  const audioRefs = useRef({});
+
+  useEffect(() => {
+    tools.forEach(tool => {
+      if (tool.sound) {
+        audioRefs.current[tool.name] = new Audio(tool.sound);
+        audioRefs.current[tool.name].load();
+      }
+    });
+
+    return () => {
+      Object.values(audioRefs.current).forEach(audio => {
+        audio.pause();
+        audio.src = '';
+      });
+    };
+  }, []);
+
+  const handleHover = (toolName) => {
+    if (audioRefs.current[toolName]) {
+      const audio = audioRefs.current[toolName];
+      audio.currentTime = 0;
+      audio.play().catch(e => console.log("Audio play failed:", e));
+    }
+  };
 
   return (
     <section className=" w-[95%] lg:w-[85%] mx-auto py-8 rounded-xl backdrop-blur-md">
@@ -140,21 +166,16 @@ export const ToolsSection = () => {
         {tools.map((tool, index) => (
           <div
             key={index}
-            className="relative flex flex-col items-center justify-center p-4 rounded-2xl border border-white/20 shadow-xl backdrop-blur-lg transition-transform overflow-hidden duration-300 group hover:scale-105 hover:shadow-[0_8px_32px_rgba(77,37,108,0.20)]"
-            onMouseEnter={() => {
-              if (tool.sound && typeof window !== 'undefined') {
-                const audio = new Audio(tool.sound);
-                audio.currentTime = 0;
-                audio.play();
-              }
-            }}
+            className="relative flex flex-col items-center justify-center p-4 rounded-2xl border border-white/20 shadow-xl backdrop-blur-lg transition-all duration-200 overflow-hidden group hover:scale-[1.02]"
+            // Modify your hover handler
+            onMouseEnter={() => handleHover(tool.name)}
             style={{ minHeight: '140px' }}
           >
             <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-[#2e1543]/80 via-[#30144a]/70 to-[#4d256c]/70 mb-2 shadow-lg z-20">
               {tool.icon ? (
                 tool.icon
               ) : (
-                <Image src={tool.image} alt={tool.name} className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+                <Image src={tool.image} alt={tool.name} className="w-10 h-10 md:w-12 md:h-12 object-contain" priority={index < 5} />
               )}
             </div>
             <div className="mt-1 text-center text-white text-sm md:text-base font-medium tracking-wide w-full px-2 z-20">
@@ -164,6 +185,6 @@ export const ToolsSection = () => {
           </div>
         ))}
       </div>
-    </section>
+    </section >
   );
 };
