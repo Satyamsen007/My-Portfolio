@@ -61,8 +61,6 @@ const cardVariants = {
 const EducationExperienceSection = () => {
   const [activeTab, setActiveTab] = useState("Education");
   const items = activeTab === "Education" ? education : experience;
-
-  // For sliding tab indicator
   const tabIndex = tabs.indexOf(activeTab);
 
   return (
