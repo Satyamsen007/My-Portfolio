@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge"
 
 export const HeroOrbit = ({ children, size, rotation, orbitDuration, shouldOrbit, shouldSpin, spinDuration }) => {
   return (
-    <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-20'>
+    <div className='absolute left-1/2 top-1/2 max-md:hidden -translate-x-1/2 -translate-y-1/2 -z-20'>
       <div className={twMerge(shouldOrbit === true && "animate-spin")}
         style={{
           animationDuration: orbitDuration
