@@ -105,12 +105,16 @@ export const ProjectsSection = () => {
           <FlameStarEffectUnderline />
         </motion.div>
 
-        <div
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-300px" }}
           className="w-full mt-10 md:mt-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
             {portfolioProjects.map((project, i) => {
               return (
-                <div
+                <motion.div
                   key={project.id}
                   className="z-20 rounded-3xl overflow-hidden shadow-xl border border-[#4d256c] bg-gradient-to-br from-[#2e1543] to-[#240C36] p-0 flex flex-col group transition-all duration-300"
                 >
@@ -130,20 +134,32 @@ export const ProjectsSection = () => {
                   {/* Card Content */}
                   <div className="flex flex-col gap-2 items-center px-6 pt-6 pb-5">
                     {/* Title */}
-                    <h3
+                    <motion.h3
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 }}
                       className="text-lg md:text-xl font-bold text-white text-center mb-1 tracking-tight drop-shadow-lg">
                       {project.title}
-                    </h3>
+                    </motion.h3>
                     {/* Description */}
                     {project.description && (
-                      <p
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
                         className="text-[#e0c6f7]/90 text-xs md:text-sm text-center mb-2 px-1">
                         {project.description}
-                      </p>
+                      </motion.p>
                     )}
                     {/* Tech Stack */}
                     {project.techStack && project.techStack.length > 0 && (
-                      <div
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, staggerChildren: 0.1 }}
                         className="flex flex-wrap justify-center gap-2 mb-1">
                         {project.techStack.map((tech, idx) => (
                           <span
@@ -152,10 +168,14 @@ export const ProjectsSection = () => {
                             {tech}
                           </span>
                         ))}
-                      </div>
+                      </motion.div>
                     )}
                     {/* Action Buttons */}
-                    <div
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
                       className="flex gap-3 w-full mt-2">
                       <a
                         href={project.link}
@@ -195,13 +215,13 @@ export const ProjectsSection = () => {
                           <span className="text-[10px] text-gray-400 mt-1 text-center">This project is private or was created as client work and cannot be shared.</span>
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
