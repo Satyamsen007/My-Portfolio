@@ -50,10 +50,7 @@ export const SkillsShowcase = () => {
                 </div>
                 <div className="w-full h-2 rounded-full bg-[#191622] relative overflow-hidden">
                   <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.value}%` }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    initial={{ width: `${skill.value}%` }}
                     className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#E86FFF] to-[#8e44ec]"
                   />
                 </div>

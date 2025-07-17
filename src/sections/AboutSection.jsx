@@ -4,102 +4,41 @@ import SkillsShowcase from "./SkillsShowcase";
 import LanguagesShowcaseSection from "./LanguagesShowcaseSection";
 import { ToolsSection } from "./ToolsSection";
 import FlameStarEffectUnderline from "@/components/FlameStarEffectUnderline";
-import { motion } from "framer-motion";
 
 const AboutSection = () => {
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
   return (
     <section
       id="about"
     >
       <div className="lg:w-[85%] w-[95%] mx-auto pt-0 pb-4 lg:py-12 lg:px-6 px-2 text-white font-sans">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
+        <div
           className="w-full flex flex-col items-center relative mb-10">
-          <motion.h2
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1]
-                }
-              }
-            }}
+          <h2
             className="text-2xl md:text-3xl font-extrabold text-center mt-6 bg-gradient-to-r from-[#e0c6f7] via-[#a084e8] to-[#8e44ec] text-transparent bg-clip-text drop-shadow-lg tracking-tight">
             About Me
-          </motion.h2>
+          </h2>
           {/* Fade underlines */}
           <FlameStarEffectUnderline />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-30px" }}
-          variants={containerVariants}
+        </div>
+        <div
           className="lg:p-6 md:p-8 backdrop-blur-sm">
-          <motion.p
-            variants={textVariants}
+          <p
             className="mb-4 text-sm lg:text-lg leading-relaxed text-gray-300 text-center">
             Hello! I'm Satyam Sen, a dedicated Full Stack Developer from West Bengal, India. With a strong foundation in web technologies and a diploma in Web Design from Moople Institute (2023-2024), I specialize in building responsive, user-centric web applications.
-          </motion.p>
-          <motion.p
-            variants={textVariants}
+          </p>
+          <p
             className="mb-4 text-sm lg:text-lg leading-relaxed text-gray-300 text-center">
             My academic background includes completing both secondary and higher secondary education under the West Bengal Board & Council.
-          </motion.p>
-          <motion.p
-            variants={textVariants}
+          </p>
+          <p
             className="mb-4 text-sm lg:text-lg leading-relaxed text-gray-300 text-center">
             As a full-stack developer, I've worked with both frontend and backend technologies, focusing on creating seamless digital experiences. My technical education has provided me with comprehensive understanding of web architecture, UI/UX principles, and efficient coding practices.
-          </motion.p>
-          <motion.p
-            variants={textVariants}
+          </p>
+          <p
             className="text-sm lg:text-lg leading-relaxed text-gray-300 text-center">
             Committed to continuous learning, I stay up to date with the latest technologies, tools, and development practices. Outside of coding, I invest time in building personal projects, exploring new frameworks, and expanding my knowledge to remain aligned with industry trends. I strongly believe in sharing insights with peers and learning through collaboration to grow as a developer and support the broader tech community.
-          </motion.p>
-          <motion.div
-            variants={textVariants}
+          </p>
+          <div
             className="flex justify-center mt-8">
             <a
               href="/resume.pdf"
@@ -129,43 +68,26 @@ const AboutSection = () => {
                 View My Resume
               </span>
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-150px" }}
-        variants={sectionVariants}
+      <div
       >
         <SkillsShowcase />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-150px" }}
-        variants={sectionVariants}
+      </div>
+      <div
       >
         <EducationExperienceSection />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-150px" }}
-        variants={sectionVariants}
-
+      </div>
+      <div
       >
         <LanguagesShowcaseSection />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-150px" }}
-        variants={sectionVariants}
+      </div>
+      <div
       >
         <ToolsSection />
-      </motion.div>
+      </div>
     </section>
   );
 };

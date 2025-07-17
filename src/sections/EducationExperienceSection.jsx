@@ -3,57 +3,25 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FlameStarEffectUnderline from "@/components/FlameStarEffectUnderline";
-
-const education = [
-  {
-    icon: "🏫",
-    title: "Secondary",
-    org: "W.B.B.SE",
-    date: "2020 - 2022",
-    location: "West Bengal, India",
-    desc: "Completed my Class 10 under the West Bengal Board of Secondary Education (W.B.B.S.E) with a strong foundation in core subjects. "
-  },
-  {
-    icon: "🎓",
-    title: "Higher Secondary",
-    org: "W.B.C.H.S.E",
-    date: "2022 - 2023",
-    location: "West Bengal, India",
-    desc: "Completed my Class 12 in Arts stream under the West Bengal Council of Higher Secondary Education (W.B.C.H.S.E), with Computer Applications as an elective subject."
-  },
-  {
-    icon: "📜",
-    title: "Diploma in Web Design",
-    org: "Moople Institute",
-    date: "2023 - 2024",
-    location: "West Bengal, India",
-    desc: "Professional training in modern web stacks (HTML5, CSS3, JavaScript ES6+) with 200+ hours of hands-on development."
-  }
-];
-
-const experience = [
-  {
-    icon: "💡",
-    title: "Freelance Technical Writer",
-    org: "Motion Writer",
-    date: "Jan 2025 - Present",
-    location: "OnSite",
-    desc: "At Motion Writer, I tackled web development and SEO-related projects—debugging code issues, optimizing content, and creating technical guidelines for developers."
-  },
-];
-
+import { education, experience } from "@/assets/assets";
 
 const tabs = ["Education", "Experience"];
 
 
+// Add this to your cardVariants
 const cardVariants = {
-  hidden: { opacity: 0, y: 48, scale: 0.96 },
+  hidden: {
+    opacity: 0,
+    y: 48,
+    scale: 0.96,
+  },
   visible: idx => ({
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { delay: idx * 0.09, type: "spring", stiffness: 60, damping: 18 },
-  }),
+    height: "auto",
+    transition: { delay: idx * 0.09, type: "spring", stiffness: 60, damping: 18 }
+  })
 };
 
 
@@ -107,18 +75,19 @@ const EducationExperienceSection = () => {
         </div>
       </div>
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full px-2 md:px-0 perspective-[1200px]">
-        <AnimatePresence>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full px-2 md:px-0 min-h-[300px]">
+        <AnimatePresence mode="popLayout" initial={false}>
           {items.map((item, idx) => {
             return (
               <motion.div
-                key={item.title + idx}
-                className="relative rounded-3xl bg-[#2e1543]/70 border border-[#5e2bbd] shadow-2xl px-6 pt-12 pb-7 flex flex-col items-center justify-start min-h-[230px] max-w-sm mx-auto backdrop-blur-xl overflow-visible group"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.19 }}
-                custom={idx}
+                key={`${activeTab}-${item.title}-${idx}`}
+                layout
                 variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                custom={idx}
+                className="relative rounded-3xl bg-[#2e1543]/70 border border-[#5e2bbd] shadow-2xl px-6 pt-12 pb-7 flex flex-col items-center justify-start min-h-[230px] max-w-sm mx-auto backdrop-blur-xl overflow-visible group"
               >
                 {/* Floating Icon */}
                 <span className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-[#e0c6f7] via-[#a084e8] to-[#8e44ec] shadow-xl border-4 border-[#240C36] z-20">

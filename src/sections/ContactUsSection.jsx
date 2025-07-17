@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import FlameStarEffectUnderline from "@/components/FlameStarEffectUnderline";
 import AnimatedCard from "@/components/dynamic-border-animations-card";
-import { motion } from 'framer-motion';
 
 export const ContactUsSection = () => {
   const {
@@ -46,23 +45,8 @@ export const ContactUsSection = () => {
       setLoading(false);
     }
   };
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-150px" }}
-      variants={sectionVariants}
+    <section
       id="contact" className="w-full py-16 max-md:py-2 px-4 md:px-0 flex flex-col items-center justify-center drop-shadow-sm">
       {/* Top Heading and Professional Paragraph */}
       <div className="w-full flex flex-col items-center relative mb-10">
@@ -174,6 +158,6 @@ export const ContactUsSection = () => {
         </div>
       </AnimatedCard>
 
-    </motion.section>
+    </section>
   );
 };

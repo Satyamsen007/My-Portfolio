@@ -1,5 +1,4 @@
 import FlameStarEffectUnderline from "@/components/FlameStarEffectUnderline";
-import { motion } from 'framer-motion';
 const platforms = [
   {
     name: 'GitHub',
@@ -74,11 +73,7 @@ const sectionVariants = {
 };
 const SocialMediaShowcase = () => {
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-150px" }}
-      variants={sectionVariants}
+    <section
       className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
       <div className="w-full flex flex-col items-center relative mb-10">
@@ -118,7 +113,7 @@ const SocialMediaShowcase = () => {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
