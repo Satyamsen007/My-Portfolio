@@ -7,8 +7,6 @@ import { education, experience } from "@/assets/assets";
 
 const tabs = ["Education", "Experience"];
 
-
-// Add this to your cardVariants
 const cardVariants = {
   hidden: {
     opacity: 0,
@@ -23,7 +21,6 @@ const cardVariants = {
     transition: { delay: idx * 0.09, type: "spring", stiffness: 60, damping: 18 }
   })
 };
-
 
 
 const EducationExperienceSection = () => {
